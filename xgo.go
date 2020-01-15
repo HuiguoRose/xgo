@@ -334,10 +334,11 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 		args = append(args, []string{"-v", os.Getenv("GOPATH") + ":/go"}...)
 
 		// Map this repository to the /source folder
-		absRepository, err := filepath.Abs(config.Repository)
-		if err != nil {
-			log.Fatalf("Failed to locate requested module repository: %v.", err)
-		}
+		//absRepository, err := filepath.Abs(config.Repository)
+		//if err != nil {
+		//	log.Fatalf("Failed to locate requested module repository: %v.", err)
+		//}
+		absRepository:=flag.Args()[0]
 		args = append(args, []string{"-v", absRepository + ":/source"}...)
 
 		fmt.Printf("Enabled Go module support\n")
