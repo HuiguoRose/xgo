@@ -358,7 +358,11 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 	}
 
 	args = append(args, []string{image, config.Repository}...)
-	fmt.Printf("docker %v\n",args)
+	fmt.Printf("docker ")
+	for _,v:=range args{
+		fmt.Printf("%v ",v)
+	}
+	fmt.Printf("\n")
 	return run(exec.Command("docker", args...))
 }
 
