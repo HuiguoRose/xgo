@@ -259,7 +259,7 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 		config.Repository = resolveImportPath(config.Repository)
 
 		// Determine if this is a module-based repository
-		var modFile = config.Repository + "/go.mod"
+		var modFile = flag.Args()[0] + "/go.mod"
 		_, err := os.Stat(modFile)
 		usesModules = !os.IsNotExist(err)
 
